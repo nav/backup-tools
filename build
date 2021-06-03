@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
+REPO=navi/backup-tools
 VERSION=$1
 
 build() {
-  docker build -t navi/backup-tools:$VERSION .
+  docker build --no-cache -t ${REPO}:$VERSION -t ${REPO}:latest .
 }
 
 push() {
-  docker push navi/backup-tools:$VERSION
+  docker push ${REPO} --all-tags
 }
 
 build;
