@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+VERSION=$1
+
+build() {
+  docker build -t navi/backup-tools:$VERSION .
+}
+
+push() {
+  docker push navi/backup-tools:$VERSION
+}
+
+build;
+push;
